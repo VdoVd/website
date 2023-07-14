@@ -2,6 +2,6 @@ package auth
 
 import "fmt"
 
-func t() {
+func T() {
 	fmt.Println("test")
 }
