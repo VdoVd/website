@@ -1,0 +1,9 @@
+.login-container{
+    height: 100px;
+    width: 20%;
+    background-color: #777777;
+    margin: 200px auto;
+}
+#c{
+    display: flex;
+}

@@ -58,7 +58,9 @@ const auth =()=>{
     return(
 
             <canvas id="c">
-
+                <div className="login-container">
+tvrcbynuxim
+                </div>
             </canvas>
 
     )

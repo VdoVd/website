@@ -9,5 +9,5 @@ func main() {
 		ctx.HTML("Hello <strong>%s</strong>!", "World")
 	})
 
-	app.Listen(":8080")
+	app.Listen(":80")
 }
