@@ -1,9 +1,22 @@
-.login-container{
-    height: 100px;
-    width: 20%;
-    background-color: #777777;
-    margin: 200px auto;
+:root{
+    --width-login:400px;
+    --height-login:300px;
+}
+#login-container{
+    border-radius: 5px;
+    background-color: aqua;
+    z-index: 2;
+    height: var(--height-login);
+    width: var(--width-login);
+    position: absolute;
+    top:30%;
+    left:37%;
+    margin-left: var(--width-login)/3;
+    margin-top: var(--height-login)/3;
 }
 #c{
-    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import {Button,Checkbox,Form,Input} from "antd";
 import './index.css'
 
 const auth =()=>{
@@ -27,7 +28,7 @@ const auth =()=>{
         //设置 id对应的标签大小为识别的宽度和高度
         c.width = width; c.height = height;
         //设置 要展示的数字
-        chinese = '01'.split('');
+        chinese = '0123456789poiuytrewqaaasdfghjklmnbvcxz[]*&^%$@'.split('');
         chineseLen = chinese.length;
 
         //设置展示 字体
@@ -53,16 +54,88 @@ const auth =()=>{
         }
         setInterval(draw, intertime);
     };
-    setTimeout(function(){onClick('c');}, 100);
+    setTimeout(function(){onClick('c');}, 200);
 
+    const onFinishFailed = (errorInfo) =>{
+        console.log('Failed:',errorInfo)
+    }
+
+    const onFinish = (values) =>{
+        
+    }
     return(
-
-            <canvas id="c">
-                <div className="login-container">
-tvrcbynuxim
-                </div>
-            </canvas>
-
+        <div>
+            <canvas id="c"></canvas>
+            <div id="login-container">
+                <Form
+                    name="basic"
+                    labelCol={{
+                        span:6,
+                    }}
+                    wrapperCol={{
+                        span:17,
+                    }}
+                    style={{
+                        maxWidth:600,
+                    }}
+                    initialValues={{
+                        remember:true,
+                    }}
+                    onFinish={onFinish}
+                    onFinishFailed={onFinishFailed}
+                    autoComplete="off"
+                    >
+                    <Form.Item
+                        label="Username"
+                        name="username"
+                        wrapperRow={{
+                            offset:4,
+                            span:8,
+                        }}
+                        rules={[
+                            {
+                                required:true,
+                                message: 'Please input your username!',
+                            },
+                        ]}
+                        >
+                        <Input />
+                    </Form.Item>
+                    <Form.Item
+                        label="Password"
+                        name="password"
+                        rules={[
+                            {
+                                required:true,
+                                message:'Please input your password!',
+                            },
+                        ]}
+                        >
+                        <Input.Password/>
+                    </Form.Item>
+                    <Form.Item
+                        name="remember"
+                        valuePropName="checked"
+                        wrapperCol={{
+                            offset:4,
+                            span:16,
+                        }}
+                        >
+                        <Checkbox>Remember me</Checkbox>
+                    </Form.Item>
+                    <Form.Item
+                        wrapperCol={{
+                            offset:4,
+                            span:16,
+                        }}
+                        >
+                        <Button type="primary" htmlType="submit">
+                            Submit
+                        </Button>
+                    </Form.Item>
+                </Form>
+            </div>
+        </div>
     )
 
 };
